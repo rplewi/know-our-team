@@ -1,0 +1,23 @@
+{
+  "name": "know-our-team",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines"{
+    "node": "18.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rplewi/know-our-team.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rplewi/know-our-team/issues"
+  },
+  "homepage": "https://github.com/rplewi/know-our-team#readme"
+}
