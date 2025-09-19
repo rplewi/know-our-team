@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know Our Team!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Group Pick -->
+        <div class="main-logo">
+            <div class="logo-circle">
+                <img src="logo.jpg" alt="Team Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="upload-placeholder" style="display: none;">
+                    <span>Upload Team Logo</span>
+                </div>
+            </div>
+            <div class="team-title">
+                <h1>1932 Stout Scarabs</h1>
+            </div>
+        </div>
+
+        <!-- Team  -->
+        <div class="team-members">
+            <h2>Our Team</h2>
+            <div class="members-grid">
+
+                <!-- Anthony -->
+                <div class="member-card">
+                    <div class="member-circle" onclick="expandCircle(this)">
+                        <img src="anthonyPic.jpg" alt="Anthony" class="member-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="member-placeholder" style="display: none;">
+                            <span>+</span>
+                        </div>
+                    </div>
+                    <div class="member-name">
+                        <a href="https://your-website.com" target="_blank" class="name-link">Anthony</a>
+                    </div>
+                </div>
+
+                <!-- Cameron -->
+                <div class="member-card">
+                    <div class="member-circle" onclick="expandCircle(this)">
+                        <img src="cameronPic.jpg" alt="Cameron" class="member-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="member-placeholder" style="display: none;">
+                            <span>+</span>
+                        </div>
+                    </div>
+                    <div class="member-name">
+                        <a href="https://your-website.com" target="_blank" class="name-link">Cameron</a>
+                    </div>
+                </div>
+
+                <!-- Gregorio -->
+                <div class="member-card">
+                    <div class="member-circle" onclick="expandCircle(this)">
+                        <img src="gregPic.jpg" alt="Gregorio" class="member-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="member-placeholder" style="display: none;">
+                            <span>+</span>
+                        </div>
+                    </div>
+                    <div class="member-name">
+                        <a href="https://golivares18.github.io/me/" target="_blank" class="name-link">Gregorio Olivares</a>
+                    </div>
+                </div>
+
+                <!-- Theodore -->
+                <div class="member-card">
+                    <div class="member-circle" onclick="expandCircle(this)">
+                        <img src="theodorePic.jpg" alt="Theodore" class="member-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="member-placeholder" style="display: none;">
+                            <span>+</span>
+                        </div>
+                    </div>
+                    <div class="member-name">
+                        <a href="https://your-website.com" target="_blank" class="name-link">Theodore</a>
+                    </div>
+                </div>
+
+                <!-- Roman -->
+                <div class="member-card">
+                    <div class="member-circle" onclick="expandCircle(this)">
+                        <img src="romanPic.jpg" alt="Roman" class="member-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="member-placeholder" style="display: none;">
+                            <span>+</span>
+                        </div>
+                    </div>
+                    <div class="member-name">
+                        <a href="https://your-website.com" target="_blank" class="name-link">Roman</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Section -->
+        <div class="portfolio-section">
+            <h2>Assignment Portfolio</h2>
+            <div class="portfolio-content">
+                <div class="portfolio-item">
+                    <a href="https://www.chattynotes.io/" target="_blank" class="portfolio-link">
+                        <h3>ChattyNotes</h3>
+                    </a>
+                </div>
+                <div class="portfolio-item">
+                    <a href="https://thankful-ground-041452310.6.azurestaticapps.net/" target="_blank" class="portfolio-link">
+                        <h3>Health-Risk Calculator</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function expandCircle(element) {
+            // Remove expanded class from all circles
+            document.querySelectorAll('.member-circle').forEach(circle => {
+                circle.classList.remove('expanded');
+            });
+            
+            // Add expanded class to clicked circle
+            element.classList.add('expanded');
+        }
+
+        // Add click outside to close expanded circle
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.member-circle')) {
+                document.querySelectorAll('.member-circle').forEach(circle => {
+                    circle.classList.remove('expanded');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
