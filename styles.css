@@ -108,119 +108,159 @@ body {
     font-weight: 300;
 }
 
-.members-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    justify-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.member-card:nth-child(4),
-.member-card:nth-child(5) {
-    grid-column: span 1;
-    justify-self: center;
-}
-
-.member-card {
+/* Image Map Container */
+.image-map-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.member-circle {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    display: flex;
-    align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.member-circle:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.5);
-}
-
-.member-circle.expanded {
-    transform: scale(1.2);
-    background: rgba(255, 255, 255, 0.25);
-    border-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    z-index: 10;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 800px;
     position: relative;
 }
 
-.member-image {
-    width: 100%;
-    height: 100%;
+/* Composite Image Container */
+.composite-image {
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.composite-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Base car image */
+.car-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Face overlay container */
+.face-overlay {
+    position: absolute;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.face-overlay:hover {
+    transform: scale(1.1);
+    z-index: 20;
+}
+
+/* Member face images */
+.member-face {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.8);
     object-fit: cover;
     object-position: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
-.member-placeholder {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 24px;
-    font-weight: 300;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.face-overlay:hover .member-face {
+    border-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
-.member-circle:hover .member-image {
-    transform: scale(1.05);
+/* Position each team member's face */
+.anthony-face {
+    top: 35%;
+    left: 15%;
 }
 
-.member-circle:hover .member-placeholder {
-    color: rgba(255, 255, 255, 0.9);
-    transform: scale(1.1);
+.cameron-face {
+    top: 25%;
+    left: 45%;
 }
 
-.member-name {
-    width: 100%;
-    text-align: center;
+.gregorio-face {
+    top: 35%;
+    right: 15%;
 }
 
-.name-link {
-    display: inline-block;
-    padding: 12px 24px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
+.theodore-face {
+    top: 10%;
+    left: 45%;
+}
+
+.roman-face {
+    bottom: 20%;
+    left: 30%;
+}
+
+/* Remove link styling */
+.face-overlay a {
     text-decoration: none;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    min-width: 120px;
+    display: block;
 }
 
-.name-link:hover {
-    border-color: rgba(255, 255, 255, 0.5);
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
+.face-overlay a:hover {
     text-decoration: none;
-    color: white;
 }
 
-.name-link:active {
-    transform: translateY(0);
+/* Responsive adjustments for composite image */
+@media (max-width: 768px) {
+    .image-map-container {
+        max-width: 90%;
+    }
+    
+    .composite-image {
+        border-radius: 15px;
+    }
+    
+    .member-face {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-map-container {
+        max-width: 95%;
+    }
+    
+    .composite-image {
+        border-radius: 10px;
+    }
+    
+    .member-face {
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* Adjust face positions for mobile */
+    .anthony-face {
+        top: 30%;
+        left: 10%;
+    }
+    
+    .cameron-face {
+        top: 20%;
+        left: 40%;
+    }
+    
+    .gregorio-face {
+        top: 30%;
+        right: 10%;
+    }
+    
+    .theodore-face {
+        top: 5%;
+        left: 40%;
+    }
+    
+    .roman-face {
+        bottom: 15%;
+        left: 25%;
+    }
 }
 
 /* Portfolio Section */
@@ -320,25 +360,6 @@ body {
         font-size: 2rem;
     }
     
-    .members-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-    
-    .member-card:nth-child(4),
-    .member-card:nth-child(5) {
-        grid-column: span 1;
-        justify-self: center;
-    }
-    
-    .member-circle {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .member-placeholder {
-        font-size: 20px;
-    }
     
     .portfolio-content {
         grid-template-columns: 1fr;
@@ -350,30 +371,6 @@ body {
 }
 
 @media (max-width: 480px) {
-    .members-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    
-    .member-card:nth-child(4),
-    .member-card:nth-child(5) {
-        grid-column: span 1;
-        justify-self: center;
-    }
-    
-    .member-card:nth-child(5) {
-        grid-column: 1;
-    }
-    
-    .member-circle {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .member-placeholder {
-        font-size: 18px;
-    }
-    
     .name-input {
         font-size: 14px;
         padding: 10px 12px;
@@ -392,12 +389,6 @@ body {
     }
 }
 
-.member-card {
+.image-map-container {
     animation: fadeInUp 0.6s ease-out;
 }
-
-.member-card:nth-child(1) { animation-delay: 0.1s; }
-.member-card:nth-child(2) { animation-delay: 0.2s; }
-.member-card:nth-child(3) { animation-delay: 0.3s; }
-.member-card:nth-child(4) { animation-delay: 0.4s; }
-.member-card:nth-child(5) { animation-delay: 0.5s; }

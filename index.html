@@ -9,85 +9,48 @@
 <body>
     <div class="container">
         <!-- Group Pick -->
-        <div class="main-logo">
-            <div class="logo-circle">
-                <img src="1932StoutScarab.jpg" alt="Team Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="upload-placeholder" style="display: none;">
-                    <span>Upload Team Logo</span>
-                </div>
-            </div>
-            <div class="team-title">
-                <h1>1932 Stout Scarabs</h1>
-            </div>
+        <<div class="main-logo"> 
+             <div class="team-title"> 
+                <h1>1932 Stout Scarabs</h1> 
+            </div> 
         </div>
-
-        <!-- Team  -->
+        <!-- Team Image Map -->
         <div class="team-members">
             <h2>Our Team</h2>
-            <div class="members-grid">
-
-                <!-- Anthony -->
-                <div class="member-card">
-                    <div class="member-circle" onclick="expandCircle(this)">
-                        <img src="anthonyPic.jpg" alt="Anthony" class="member-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="member-placeholder" style="display: none;">
-                            <span>+</span>
-                        </div>
+            <div class="image-map-container">
+                <div class="composite-image">
+                    <!-- Base car image -->
+                    <img src="1932StoutScarab.jpg" alt="1932 Stout Scarab" class="car-image">
+                    
+                    <!-- Team member faces overlaid on the car -->
+                    <div class="face-overlay anthony-face">
+                        <a href="https://anthonyvlu.github.io/me/" target="_blank">
+                            <img src="anthonyPic.jpg" alt="Anthony" class="member-face">
+                        </a>
                     </div>
-                    <div class="member-name">
-                        <a href="https://anthonyvlu.github.io/me/" target="_blank" class="name-link">Anthony</a>
+                    
+                    <div class="face-overlay cameron-face">
+                        <a href="https://wiegelc.github.io/me" target="_blank">
+                            <img src="Cameron.jpg" alt="Cameron Wiegel" class="member-face">
+                        </a>
                     </div>
-                </div>
-
-                <!-- Cameron -->
-                <div class="member-card">
-                    <div class="member-circle" onclick="expandCircle(this)">
-                        <img src="Cameron.jpg" alt="Cameron" class="member-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="member-placeholder" style="display: none;">
-                            <span>+</span>
-                        </div>
+                    
+                    <div class="face-overlay gregorio-face">
+                        <a href="https://golivares18.github.io/me/" target="_blank">
+                            <img src="gregPic.jpg" alt="Gregorio Olivares" class="member-face">
+                        </a>
                     </div>
-                    <div class="member-name">
-                        <a href="https://wiegelc.github.io/me" target="_blank" class="name-link">Cameron Wiegel</a>
+                    
+                    <div class="face-overlay theodore-face">
+                        <a href="https://your-website.com" target="_blank">
+                            <img src="theodorePic.jpg" alt="Theodore" class="member-face">
+                        </a>
                     </div>
-                </div>
-
-                <!-- Gregorio -->
-                <div class="member-card">
-                    <div class="member-circle" onclick="expandCircle(this)">
-                        <img src="gregPic.jpg" alt="Gregorio" class="member-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="member-placeholder" style="display: none;">
-                            <span>+</span>
-                        </div>
-                    </div>
-                    <div class="member-name">
-                        <a href="https://golivares18.github.io/me/" target="_blank" class="name-link">Gregorio Olivares</a>
-                    </div>
-                </div>
-
-                <!-- Theodore -->
-                <div class="member-card">
-                    <div class="member-circle" onclick="expandCircle(this)">
-                        <img src="theodorePic.jpg" alt="Theodore" class="member-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="member-placeholder" style="display: none;">
-                            <span>+</span>
-                        </div>
-                    </div>
-                    <div class="member-name">
-                        <a href="https://your-website.com" target="_blank" class="name-link">Theodore</a>
-                    </div>
-                </div>
-
-                <!-- Roman -->
-                <div class="member-card">
-                    <div class="member-circle" onclick="expandCircle(this)">
-                        <img src="Roman.jpeg" alt="Roman" class="member-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="member-placeholder" style="display: none;">
-                            <span>+</span>
-                        </div>
-                    </div>
-                    <div class="member-name">
-                        <a href="https://rplewi.github.io/Getting-To-Know-Eachother/" target="_blank" class="name-link">Roman</a>
+                    
+                    <div class="face-overlay roman-face">
+                        <a href="https://rplewi.github.io/Getting-To-Know-Eachother/" target="_blank">
+                            <img src="Roman.jpeg" alt="Roman" class="member-face">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -112,23 +75,20 @@
     </div>
 
     <script>
-        function expandCircle(element) {
-            // Remove expanded class from all circles
-            document.querySelectorAll('.member-circle').forEach(circle => {
-                circle.classList.remove('expanded');
-            });
+        // Add hover effects for face overlays
+        document.addEventListener('DOMContentLoaded', function() {
+            const compositeImage = document.querySelector('.composite-image');
+            const faceOverlays = document.querySelectorAll('.face-overlay');
             
-            // Add expanded class to clicked circle
-            element.classList.add('expanded');
-        }
-
-        // Add click outside to close expanded circle
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('.member-circle')) {
-                document.querySelectorAll('.member-circle').forEach(circle => {
-                    circle.classList.remove('expanded');
+            faceOverlays.forEach(overlay => {
+                overlay.addEventListener('mouseenter', function() {
+                    compositeImage.style.filter = 'brightness(1.05)';
                 });
-            }
+                
+                overlay.addEventListener('mouseleave', function() {
+                    compositeImage.style.filter = 'brightness(1)';
+                });
+            });
         });
     </script>
 </body>
